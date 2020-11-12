@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rgb</title>
+    <style>
+
+        *{
+            padding : 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        .form-input {
+            display: inline-block;
+            border: 1px solid #333;
+            padding: 10px 5px;
+            width: 30%;
+            margin: 10px auto;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        .form-input:hover {
+            padding: 10px 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class='form-wrap'>
+            <div class="form-input" id="red">0</div>
+            <div class="form-input" id="green">0</div>
+            <div class="form-input" id="blue">0</div>
+            <!-- <input class='form-input' type="number" name="red" id="red" value=255 min="0" max="255"> -->
+            <!-- <input class='form-input' type="number" name="green" id="green" value=255 min="0" max="255"> -->
+            <!-- <input class='form-input' type="number" name="blue" id="blue" value=255 min="0" max="255"> -->
+        </form>
+    </div>
+    <script>
+
+        let fixedDate = new Date('October 20, 1970');
+        document.addEventListener('mousemove',rgb);
+        function rgb(e) {
+            let red = document.getElementById('red');
+            let green = document.getElementById('green');
+            let blue = document.getElementById('blue');
+            // let date = (new Date() - fixedDate)/100;
+            // date = Math.floor((Math.random())*255);
+            // // date = 0;
+            // console.log(`X ${e.offsetX}`);
+            // console.log(`Y ${e.offsetY}`);
+            // console.log(`Date ${date}`);
+
+            let a = e.offsetX%256;
+            let b = e.offsetY%256;
+            let c = Math.floor((Math.random())*255);
+            red.innerText = a;
+            green.innerText = b;
+            blue.innerText = c;
+            // document.querySelector('body').style.background = `rgb(${red.value},${green.value},${blue.value})`;
+            document.querySelector('body').style.background = `rgb(${a},${b},${c})`;            
+        }
+
+        // console.log();
+        // setInterval(rgb,1000);    
+
+
+    </script>
+</body>
+</html>
